@@ -5,7 +5,7 @@ last_reviewed: 2026-05-19
 
 # План: AI-платформа ERP (ассистенты, skills, gateway)
 
-> **Операционная документация (актуальное поведение):** [domains/ai/README.md](../domains/ai/README.md) — агенты, skills, чат, аудит, troubleshooting. Этот файл — дорожная карта и ADR; при расхождении с кодом приоритет у `docs/domains/ai/`.
+> **Операционная документация (актуальное поведение):** `erp.local/docs/domains/ai/README.md` (агенты, skills, чат, аудит, troubleshooting). Этот файл — дорожная карта; при расхождении с кодом приоритет у операционного гайда в `erp.local`.
 
 ## Цель
 
@@ -18,9 +18,9 @@ last_reviewed: 2026-05-19
 | Этап | Статус | Документ |
 |------|--------|----------|
 | Credentials по компании (LLM keys) | Реализовано | [tenant-external-credentials-plan.md](tenant-external-credentials-plan.md) |
-| Контракты tool-calling | Зафиксировано | [ai-call-tools-preliminary.md](../programs/client-api/ai-call-tools-preliminary.md) |
+| Контракты tool-calling | Зафиксировано | `erp.local/docs/programs/client-api/ai-call-tools-preliminary.md` |
 | Drawer-чат (UI + API conversations) | Реализовано (MVP) | [internal-messaging-chat-plan.md](internal-messaging-chat-plan.md) |
-| Communications (транспорт) | Реализовано | [communications-foundation.md](../domains/communications/communications-foundation.md) |
+| Communications (транспорт) | Реализовано | `erp.local/docs/domains/communications/communications-foundation.md` |
 
 ## Принятые архитектурные решения (ADR)
 
@@ -181,7 +181,7 @@ app/Support/AI/
 ### Фаза E — Telegram
 
 - `AiTelegramIngressService` + хук в [TelegramWebhookUpdateService](../../app/Services/Communications/Providers/Telegram/TelegramWebhookUpdateService.php) / [ProcessTelegramUpdateJob](../../app/Jobs/Communications/ProcessTelegramUpdateJob.php).
-- Документация dev: [queue-workers-dev.md](../infrastructure/queue-workers-dev.md), [telegram-bot-provider.md](../domains/communications/telegram-bot-provider.md#ai-ассистент-в-telegram).
+- Документация dev: `erp.local/docs/infrastructure/queue-workers-dev.md`, `erp.local/docs/domains/communications/telegram-bot-provider.md`.
 
 ### Фаза F — Memory / RAG
 
@@ -220,10 +220,10 @@ app/Support/AI/
 
 ## Правила реализации
 
-- Backend сущностей: [rules-for-creating-new-entity-guide.md](../rules-ai/backend/rules-for-creating-new-entity-guide.md)
-- Vue drawer/компоненты: [rules-for-vue-component.md](../rules-ai/frontend/rules-for-vue-component.md)
+- Backend сущностей: [rules-for-creating-new-entity-guide.md](rules-ai/backend/rules-for-creating-new-entity-guide.md)
+- Vue drawer/компоненты: [rules-for-vue-component.md](rules-ai/frontend/rules-for-vue-component.md)
 - Миграции: править исходные create-файлы, перекат `php artisan migrate --seed`
-- Инварианты проекта: [project-context.md](../rules-ai/project-context.md)
+- Инварианты проекта: [project-context.md](rules-ai/project-context.md)
 
 ## Трек исполнения (сводный)
 

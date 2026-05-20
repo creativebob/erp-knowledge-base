@@ -36,7 +36,7 @@ last_reviewed: 2026-03-19
 - Компоненты: `commons/manufacturer/list/filters.vue` (без фильтра по стране — страна в карточке компании), **`commons/manufacturer/form/manufacturerDataTab.vue`** (`CommonsManufacturerFormManufacturerDataTab`) — код, описание, флаги.
 - **`useManufacturerFormPayload`**: `buildLifecycleCreatePayload`, `buildManufacturerPayload`, `buildCompanyPayload`, `buildPersonPayload` (как у вендора/клиента).
 - У **`BusinessCompanyForm`** и **`PersonsForm`** проп **`extraDataTabLabel`** (на экране производителя — «Данные производителя» вместо «Клиентские данные»).
-- Селектор: `commons/manufacturer/form/select.vue` (`CommonsManufacturerFormSelect`) — см. `docs/frontend/reusable-components-registry.md`; в списке API поле **`name`** приходит с бэка (аксессор).
+- Селектор: `commons/manufacturer/form/select.vue` (`CommonsManufacturerFormSelect`) — см. `frontend/reusable-components-registry.md`; в списке API поле **`name`** приходит с бэка (аксессор).
 - Форма товара: поле производителя на основной вкладке.
 - Список товаров: фильтр по производителю в `sales/catalog/product/list/filters.vue`.
 - Для кнопки «Редактировать» в таблице производителей у `CommonsPageGroupButtons` задан `edit-route-prefix="/commons/manufacturers"` (API-путь ≠ UI-путь).

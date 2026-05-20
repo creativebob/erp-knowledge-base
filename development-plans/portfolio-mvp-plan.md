@@ -11,7 +11,7 @@ last_reviewed: 2026-05-07
 
 Модель этапа 1: `Portfolio` -> `PortfolioItem` (с опциональной категоризацией через существующую `PortfolioCategory`).
 
-**Актуальная документация модуля:** обзор домена — [docs/domains/marketing/portfolio.md](../domains/marketing/portfolio.md); контракт REST — [docs/domains/marketing/portfolio-api-contract.md](../domains/marketing/portfolio-api-contract.md).
+**Актуальная документация модуля:** обзор домена — `erp.local/docs/domains/marketing/portfolio.md`; контракт REST — `erp.local/docs/domains/marketing/portfolio-api-contract.md`.
 
 ## Обязательные принципы консистентности
 

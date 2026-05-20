@@ -1,0 +1,418 @@
+{
+    "nodes": [
+        {
+            "type": "text",
+            "text": "Домен: продажи (sales)\n\nИсточник: database\/migrations\nПоля — все колонки Schema::create\nFK: → referenced_table",
+            "id": "legend",
+            "x": -900,
+            "y": -900,
+            "width": 360,
+            "height": 120,
+            "color": "3"
+        },
+        {
+            "type": "text",
+            "text": "companies (Компании)",
+            "id": "companies",
+            "x": -900,
+            "y": -720,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "departments (Филиалы)",
+            "id": "departments",
+            "x": -900,
+            "y": -620,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "users (Пользователи)",
+            "id": "users",
+            "x": -900,
+            "y": -520,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "currencies (Валюты)",
+            "id": "currencies",
+            "x": -900,
+            "y": -420,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "sites (Сайты)",
+            "id": "sites",
+            "x": -900,
+            "y": -320,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "price_entries (Позиции прайса)",
+            "id": "price_entries",
+            "x": -900,
+            "y": -220,
+            "width": 280,
+            "height": 60,
+            "color": "5"
+        },
+        {
+            "type": "text",
+            "text": "customer_sources (Источники привлечения клиентов)\n\nid\nname\ndescription\ndomain\nutm\ncreated_at\nupdated_at",
+            "id": "customer_sources",
+            "x": -200,
+            "y": -900,
+            "width": 340,
+            "height": 182,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "customer_loyalty_levels (Уровни лояльности)\n\nid\nname\ndescription\ncreated_at\nupdated_at",
+            "id": "customer_loyalty_levels",
+            "x": 200,
+            "y": -900,
+            "width": 320,
+            "height": 160,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "leads (Лиды)\n\nid\ncompany_id → companies\nbranch_id → departments\nowner_id → users\nstatus\nprimary_phone_snapshot\ncontact_name\nprimary_email_snapshot\ncustomer_id → customers\nsource_id → customer_sources\nauthor_id → users\neditor_id → users\ncreated_at\nupdated_at\ndeleted_at",
+            "id": "leads",
+            "x": -200,
+            "y": -620,
+            "width": 340,
+            "height": 380,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "lead_interests (Интересы лида)\n\nid\nlead_id → leads\ninterestable_type\ninterestable_id\nnote\ncreated_at\nupdated_at",
+            "id": "lead_interests",
+            "x": 200,
+            "y": -620,
+            "width": 320,
+            "height": 204,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "customers (Клиенты)\n\nid\ncompany_id → companies\nbranch_id → departments\ncustomerable_type\ncustomerable_id\nnumber\ndescription\nloyalty_id → customer_loyalty_levels\nsource_id → customer_sources\nis_vip\nis_lost\ndisplay\nis_system\nauthor_id → users\neditor_id → users\ncreated_at\nupdated_at\ndeleted_at",
+            "id": "customers",
+            "x": -200,
+            "y": -280,
+            "width": 340,
+            "height": 468,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "customer_metrics (Метрики клиента)\n\nid\ncustomer_id → customers\nfirst_order_date\nlast_order_date\nlifetime\norders_count\npurchase_frequency\nait\ncustomer_equity\naverage_order_value\ncustomer_value\nltv\nuse_promo_count\npromo_rate\nrfm\nabc\nxyz\nabcxyz\nactivity\ndiscount\ndiscount_dynamic\npoints\ncreated_at\nupdated_at",
+            "id": "customer_metrics",
+            "x": 200,
+            "y": -280,
+            "width": 340,
+            "height": 600,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "sale_orders (Заказы продаж)\n\nid\ncompany_id → companies\nbranch_id → departments\nlead_id → leads\ncustomer_id → customers\ncurrency_id → currencies\nstatus\nis_primary\nsubtotal\ndiscount_total\ntax_total\ntotal\nordered_at\ncomment\nauthor_id → users\neditor_id → users\ncreated_at\nupdated_at\ndeleted_at",
+            "id": "sale_orders",
+            "x": -200,
+            "y": 120,
+            "width": 340,
+            "height": 512,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "sale_order_lines (Строки заказа продаж)\n\nid\nsale_order_id → sale_orders\ninterestable_type\ninterestable_id\nname_snapshot\nunit_snapshot\nunit_price\nquantity\ndiscount_percent\nline_total\nsort_order\nprice_entry_id → price_entries\ncreated_at\nupdated_at",
+            "id": "sale_order_lines",
+            "x": 200,
+            "y": 120,
+            "width": 340,
+            "height": 358,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "sales_contracts (Договоры продаж)\n\nid\ncompany_id → companies\nbranch_id → departments\nlead_id → leads\nsale_order_id → sale_orders\ncustomer_id → customers\nstatus\nnumber\nsigned_at\nvalid_from\nvalid_to\nauthor_id → users\neditor_id → users\ncreated_at\nupdated_at\ndeleted_at",
+            "id": "sales_contracts",
+            "x": -200,
+            "y": 520,
+            "width": 340,
+            "height": 468,
+            "color": "4"
+        },
+        {
+            "type": "text",
+            "text": "registration_drafts (Черновики регистрации (онбординг))\n\nid\ncompany_id → companies\nsite_id → sites\ndraftable_type\ndraftable_id\nflow\nschema_version\nstatus\npayload\nidempotency_key\napplied_at\nsuperseded_by_draft_id → registration_drafts\narchived_at\ncreated_at\nupdated_at",
+            "id": "registration_drafts",
+            "x": 200,
+            "y": 520,
+            "width": 360,
+            "height": 380,
+            "color": "4"
+        }
+    ],
+    "edges": [
+        {
+            "id": "e_leads_companies",
+            "fromNode": "leads",
+            "fromSide": "left",
+            "toNode": "companies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_leads_departments",
+            "fromNode": "leads",
+            "fromSide": "left",
+            "toNode": "departments",
+            "toSide": "right"
+        },
+        {
+            "id": "e_leads_users_owner",
+            "fromNode": "leads",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_leads_users_author",
+            "fromNode": "leads",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_leads_users_editor",
+            "fromNode": "leads",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_leads_customers",
+            "fromNode": "leads",
+            "fromSide": "bottom",
+            "toNode": "customers",
+            "toSide": "top"
+        },
+        {
+            "id": "e_leads_sources",
+            "fromNode": "leads",
+            "fromSide": "top",
+            "toNode": "customer_sources",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_li_leads",
+            "fromNode": "lead_interests",
+            "fromSide": "left",
+            "toNode": "leads",
+            "toSide": "right"
+        },
+        {
+            "id": "e_cust_companies",
+            "fromNode": "customers",
+            "fromSide": "left",
+            "toNode": "companies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_cust_departments",
+            "fromNode": "customers",
+            "fromSide": "left",
+            "toNode": "departments",
+            "toSide": "right"
+        },
+        {
+            "id": "e_cust_loyalty",
+            "fromNode": "customers",
+            "fromSide": "top",
+            "toNode": "customer_loyalty_levels",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_cust_sources",
+            "fromNode": "customers",
+            "fromSide": "top",
+            "toNode": "customer_sources",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_cust_users_author",
+            "fromNode": "customers",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_cust_users_editor",
+            "fromNode": "customers",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_metrics_customers",
+            "fromNode": "customer_metrics",
+            "fromSide": "left",
+            "toNode": "customers",
+            "toSide": "right"
+        },
+        {
+            "id": "e_so_companies",
+            "fromNode": "sale_orders",
+            "fromSide": "left",
+            "toNode": "companies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_so_departments",
+            "fromNode": "sale_orders",
+            "fromSide": "left",
+            "toNode": "departments",
+            "toSide": "right"
+        },
+        {
+            "id": "e_so_leads",
+            "fromNode": "sale_orders",
+            "fromSide": "top",
+            "toNode": "leads",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_so_customers",
+            "fromNode": "sale_orders",
+            "fromSide": "top",
+            "toNode": "customers",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_so_currencies",
+            "fromNode": "sale_orders",
+            "fromSide": "left",
+            "toNode": "currencies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_so_users_author",
+            "fromNode": "sale_orders",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_so_users_editor",
+            "fromNode": "sale_orders",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sol_so",
+            "fromNode": "sale_order_lines",
+            "fromSide": "left",
+            "toNode": "sale_orders",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sol_price",
+            "fromNode": "sale_order_lines",
+            "fromSide": "left",
+            "toNode": "price_entries",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sc_companies",
+            "fromNode": "sales_contracts",
+            "fromSide": "left",
+            "toNode": "companies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sc_departments",
+            "fromNode": "sales_contracts",
+            "fromSide": "left",
+            "toNode": "departments",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sc_leads",
+            "fromNode": "sales_contracts",
+            "fromSide": "top",
+            "toNode": "leads",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_sc_so",
+            "fromNode": "sales_contracts",
+            "fromSide": "right",
+            "toNode": "sale_orders",
+            "toSide": "left"
+        },
+        {
+            "id": "e_sc_customers",
+            "fromNode": "sales_contracts",
+            "fromSide": "top",
+            "toNode": "customers",
+            "toSide": "bottom"
+        },
+        {
+            "id": "e_sc_users_author",
+            "fromNode": "sales_contracts",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_sc_users_editor",
+            "fromNode": "sales_contracts",
+            "fromSide": "left",
+            "toNode": "users",
+            "toSide": "right"
+        },
+        {
+            "id": "e_rd_companies",
+            "fromNode": "registration_drafts",
+            "fromSide": "left",
+            "toNode": "companies",
+            "toSide": "right"
+        },
+        {
+            "id": "e_rd_sites",
+            "fromNode": "registration_drafts",
+            "fromSide": "left",
+            "toNode": "sites",
+            "toSide": "right"
+        },
+        {
+            "id": "e_rd_self",
+            "fromNode": "registration_drafts",
+            "fromSide": "bottom",
+            "toNode": "registration_drafts",
+            "toSide": "top"
+        }
+    ],
+    "metadata": {
+        "version": "1.0-1.0",
+        "frontmatter": []
+    }
+}

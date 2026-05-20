@@ -23,7 +23,7 @@ last_reviewed: 2026-05-14
 - Секреты в БД — **только зашифрованные** (Laravel `encrypted` cast или явный `encrypt()`); в логах и исключениях — **никогда** полный ключ.
 - Именование таблицы **не** `accounts`, чтобы не путать с [банковскими счетами](../../app/Models/Business/Bank/BankAccount.php).
 - Миграции — **исходные** `*_create_external_credentials_table.php`, без отдельных additive-миграций по правилам репозитория.
-- Backend по гайду: [docs/rules-ai/backend/rules-for-creating-new-entity-guide.md](../rules-ai/backend/rules-for-creating-new-entity-guide.md) — Controller, Request, DTO, Service, Policy, Resources, сидер `entities`, `PermissionSeeder`, регистрация в [AuthServiceProvider](../../app/Providers/AuthServiceProvider.php); соответствие [VerifyEntityPolicyMatrixCommand](../../app/Console/Commands/Quality/VerifyEntityPolicyMatrixCommand.php).
+- Backend по гайду: [rules-ai/backend/rules-for-creating-new-entity-guide.md](rules-ai/backend/rules-for-creating-new-entity-guide.md) — Controller, Request, DTO, Service, Policy, Resources, сидер `entities`, `PermissionSeeder`, регистрация в [AuthServiceProvider](../../app/Providers/AuthServiceProvider.php); соответствие [VerifyEntityPolicyMatrixCommand](../../app/Console/Commands/Quality/VerifyEntityPolicyMatrixCommand.php).
 
 ## Доменная модель (кратко)
 
@@ -180,7 +180,7 @@ last_reviewed: 2026-05-14
 
 ## Границы
 
-- **Не** домен [Communications](../../docs/domains/communications/communications-foundation.md) (`communications_messages`) — это исходящие SMS/email, другой продуктовый смысл.
+- **Не** домен `erp.local/docs/domains/communications/communications-foundation.md` (`communications_messages`) — это исходящие SMS/email, другой продуктовый смысл.
 - **Не** хранить ключи в профиле ИИ-сотрудника — только ссылка на запись credentials (реализуется во втором плане).
 
 ## Риски и открытые решения (до старта реализации желательно зафиксировать)
@@ -216,13 +216,13 @@ last_reviewed: 2026-05-14
 
 **Обязательная цепочка правил (читать и соблюдать все три):**
 
-1. [rules-for-vue-component.md](../rules-ai/frontend/rules-for-vue-component.md) — автоимпорт composables, порядок секций в `<script setup>`, вертикальные атрибуты, `then/catch/finally`, типы в `frontend/types`.
-2. [rules-for-creating-new-entity-by-frontend.md](../rules-ai/frontend/rules-for-creating-new-entity-by-frontend.md) — доменная структура файлов, эталон **плоской** сущности `brand` (`pages` + `components` + `types` + `defaults`), `useNotify`, переиспользование общих form/list/saveButton где уместно, реестр компонентов.
-3. [filter-components-guide.md](../rules-ai/frontend/filter-components-guide.md) — на `index` списка credentials фильтры только через переиспользуемые `frontend/components/commons/form/filter/*`, без одноразовых костылей.
+1. [rules-for-vue-component.md](rules-ai/frontend/rules-for-vue-component.md) — автоимпорт composables, порядок секций в `<script setup>`, вертикальные атрибуты, `then/catch/finally`, типы в `frontend/types`.
+2. [rules-for-creating-new-entity-by-frontend.md](rules-ai/frontend/rules-for-creating-new-entity-by-frontend.md) — доменная структура файлов, эталон **плоской** сущности `brand` (`pages` + `components` + `types` + `defaults`), `useNotify`, переиспользование общих form/list/saveButton где уместно, реестр компонентов.
+3. [filter-components-guide.md](rules-ai/frontend/filter-components-guide.md) — на `index` списка credentials фильтры только через переиспользуемые `frontend/components/commons/form/filter/*`, без одноразовых костылей.
 
-Дополнительные ориентиры по UX настроек: [communications/channel-settings/index.vue](../../frontend/pages/communications/channel-settings/index.vue); каркас index/create/edit — как у выбранного эталона из п.2.
+Дополнительные ориентиры по UX настроек: [communications/channel-settings/index.vue](../frontend/pages/communications/channel-settings/index.vue); каркас index/create/edit — как у выбранного эталона из п.2.
 
-**Навигация:** в [frontend/layouts/default.vue](../../frontend/layouts/default.vue) в раздел **«Настройки»** добавить пункт на **обзорную** страницу системных настроек (см. ниже) и при необходимости отдельный пункт на список credentials.
+**Навигация:** в [frontend/layouts/default.vue](../frontend/layouts/default.vue) в раздел **«Настройки»** добавить пункт на **обзорную** страницу системных настроек (см. ниже) и при необходимости отдельный пункт на список credentials.
 
 **Маршруты (черновик):**
 
@@ -236,14 +236,14 @@ last_reviewed: 2026-05-14
 
 **Обязательно:** `definePageMeta` + `middleware: ['auth', 'permissions']` + `permission`/`permissions` как принято в проекте; HTTP через `$axios` с `then/catch/finally`; уведомления через **useNotify** (не `$q.notify`), см. п.2 выше.
 
-**RBAC на фронте:** сущность `external_credentials` в сидере; **хаб** `/settings` — при **`canView('external_credentials')`**; страница пула платформы — при **`share external services`** (см. C.1 и [external-credentials.md](../domains/settings/external-credentials.md)).
+**RBAC на фронте:** сущность `external_credentials` в сидере; **хаб** `/settings` — при **`canView('external_credentials')`**; страница пула платформы — при **`share external services`** (см. C.1 и `erp.local/docs/domains/settings/external-credentials.md`).
 
-- [x] (`done`) [`frontend/pages/settings/index.vue`](../../frontend/pages/settings/index.vue) — хаб настроек.
-- [x] (`done`) [`frontend/pages/settings/external-credentials/`](../../frontend/pages/settings/external-credentials/) — index, create, `[id]` (редактирование).
-- [x] (`done`) [`frontend/components/settings/external-credentials/`](../../frontend/components/settings/external-credentials/) — форма, фильтры списка; типы в [`frontend/types/settings/externalCredential.ts`](../../frontend/types/settings/externalCredential.ts).
-- [x] (`done`) [default.vue](../../frontend/layouts/default.vue) — `routeAliasMap`, пункты «Настройки» и «Платформа → Общие ключи (пул)».
+- [x] (`done`) [`frontend/pages/settings/index.vue`](../frontend/pages/settings/index.vue) — хаб настроек.
+- [x] (`done`) [`frontend/pages/settings/external-credentials/`](../frontend/pages/settings/external-credentials/) — index, create, `[id]` (редактирование).
+- [x] (`done`) [`frontend/components/settings/external-credentials/`](../frontend/components/settings/external-credentials/) — форма, фильтры списка; типы в [`frontend/types/settings/externalCredential.ts`](../frontend/types/settings/externalCredential.ts).
+- [x] (`done`) [default.vue](../frontend/layouts/default.vue) — `routeAliasMap`, пункты «Настройки» и «Платформа → Общие ключи (пул)».
 - [x] (`done`) Поля секретов: в форме `type="password"`, после сохранения не подставляются plaintext (логика загрузки/отправки в форме).
-- [ ] (`todo`) Запись в [reusable-components-registry.md](../frontend/reusable-components-registry.md) — **не делалась** (нет нового вынесенного в общий каталог компонента сверх текущих `list/filters` + формы; добавить при ревью/рефакторинге).
+- [ ] (`todo`) Запись в [reusable-components-registry.md](frontend/reusable-components-registry.md) — **не делалась** (нет нового вынесенного в общий каталог компонента сверх текущих `list/filters` + формы; добавить при ревью/рефакторинге).
 
 ### Этап C.4 — Тесты и приёмка
 
@@ -254,8 +254,8 @@ last_reviewed: 2026-05-14
 
 ## Связанные документы
 
-- [external-credentials.md](../domains/settings/external-credentials.md) — доменная документация (резолв, пул, env, права).
-- [rules-for-vue-component.md](../rules-ai/frontend/rules-for-vue-component.md) · [rules-for-creating-new-entity-by-frontend.md](../rules-ai/frontend/rules-for-creating-new-entity-by-frontend.md) · [filter-components-guide.md](../rules-ai/frontend/filter-components-guide.md) — фронтенд этой фичи.
+- `erp.local/docs/domains/settings/external-credentials.md` — доменная документация (резолв, пул, env, права).
+- [rules-for-vue-component.md](rules-ai/frontend/rules-for-vue-component.md) · [rules-for-creating-new-entity-by-frontend.md](rules-ai/frontend/rules-for-creating-new-entity-by-frontend.md) · [filter-components-guide.md](rules-ai/frontend/filter-components-guide.md) — фронтенд этой фичи.
 - [internal-messaging-chat-plan.md](internal-messaging-chat-plan.md) — этап 2, внутренний чат и ИИ.
 - Сводный технический контекст ранее вёлся в Cursor-плане `erp_глобальный_чат_ии` (проектные заметки; источник истины для репозитория — эти файлы в `docs/`).
-- Локальные файлы `.cursor/plans/*.plan.md` (вне git) — **не** источник истины; при расхождении с кодом см. раздел **«Черновые планы Cursor и источник истины»** в [external-credentials.md](../domains/settings/external-credentials.md).
+- Локальные файлы `.cursor/plans/*.plan.md` (вне git) — **не** источник истины; при расхождении с кодом см. раздел **«Черновые планы Cursor и источник истины»** в `erp.local/docs/domains/settings/external-credentials.md`.

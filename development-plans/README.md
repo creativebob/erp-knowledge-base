@@ -1,9 +1,15 @@
+---
+doc_status: current
+last_reviewed: 2026-05-20
+---
+
 # Планы развития
 
 Здесь хранятся **долгосрочные и предметные планы** развития ERP (доменная модель, этапы внедрения, соглашения по именованию). Документы не заменяют код и миграции — к ним возвращаются при приоритизации задач.
 
 | Документ | Суть |
 | -------- | ---- |
+| [ai-instruction-skills.md](../prompts/ai-instruction-skills.md) | Instruction skills (каноническая копия в `prompts/`) |
 | [tenant-external-credentials-plan.md](tenant-external-credentials-plan.md) | **Этап 1.** Хранение внешних credentials по компании (мульти-тенант, в т.ч. LLM API keys), зашифрованно в БД; основа для оплаты провайдера со стороны тенанта |
 | [ai-assistent-plan.md](ai-assistent-plan.md) | **Этап 2 (мастер).** AI-платформа: `App\Services\AI`, таблицы `ai_*`, skills в БД, gateway, фазы A–F |
 | [ai-leads-skills-plan.md](ai-leads-skills-plan.md) | **Запланировано.** AI skills для лидов: подсчёт на дату, поиск активного лида (имя/телефон/адрес) |

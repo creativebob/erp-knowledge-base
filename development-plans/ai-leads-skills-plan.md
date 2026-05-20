@@ -248,5 +248,5 @@ leads.customer_id → customers → customerable (Person|Company)
 
 - [ai-assistent-plan.md](ai-assistent-plan.md) — мастер-план AI-платформы
 - [leads-and-sale-order-material.md](leads-and-sale-order-material.md) — домен лидов и заказов
-- [queue-workers-dev.md](../infrastructure/queue-workers-dev.md) — очереди и Telegram в dev
-- [telegram-bot-provider.md](../domains/communications/telegram-bot-provider.md) — webhook и привязка бота
+- `erp.local/docs/infrastructure/queue-workers-dev.md` — очереди и Telegram в dev
+- `erp.local/docs/domains/communications/telegram-bot-provider.md` — webhook и привязка бота
